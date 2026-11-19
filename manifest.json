@@ -1,0 +1,21 @@
+{
+  "name": "NEXUS OPS Field Command v2.1 CLEAN",
+  "short_name": "NEXUS OPS",
+  "description": "Crew event tracking, discipline alerts, and policy enforcement. Local file, localStorage only. Demo data labeled DEMO.",
+  "start_url": "index.html",
+  "display": "standalone",
+  "background_color": "#0a0a0f",
+  "theme_color": "#0a0a0f",
+  "icons": [
+    {
+      "src": "icons/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "icons/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
