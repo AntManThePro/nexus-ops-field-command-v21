@@ -348,8 +348,8 @@
                     </div>
                 </div>
                 <div class="mt-4 flex gap-x-1">
-                    <div class="text-[10px] px-2 py-0.5 rounded bg-[#ff0080]/10 text-[#ff0080]">4 OPEN</div>
-                    <div class="text-[10px] px-2 py-0.5 rounded bg-[#00ff87]/10 text-[#00ff87]">5 RESOLVED</div>
+                    <div id="kpi-open" class="text-[10px] px-2 py-0.5 rounded bg-[#ff0080]/10 text-[#ff0080]">3 OPEN</div>
+                    <div id="kpi-resolved" class="text-[10px] px-2 py-0.5 rounded bg-[#00ff87]/10 text-[#00ff87]">3 RESOLVED</div>
                 </div>
             </div>
             
@@ -417,7 +417,7 @@
                             <div class="section-header">TACTICAL FIELD MAP</div>
                             <div class="text-xs text-white/50">Real-time crew positions • Site Alpha-7</div>
                         </div>
-                        <div class="text-xs px-3 py-1 rounded-2xl bg-[#00ff87]/10 text-[#00ff87] font-mono">LIVE • 47 NODES</div>
+                        <div id="map-nodes" class="text-xs px-3 py-1 rounded-2xl bg-[#00ff87]/10 text-[#00ff87] font-mono">LIVE • 6 POSITIONS</div>
                     </div>
                     
                     <div class="canvas-container">
@@ -1181,6 +1181,12 @@
             document.getElementById('kpi-alerts').innerHTML = criticalAlerts;
             const fe = document.getElementById('footer-events');
             if (fe) fe.textContent = events.length + ' events in this file';
+            const openCount = events.filter(e => e.status !== "RESOLVED").length;
+            const resolvedCount = events.filter(e => e.status === "RESOLVED").length;
+            const ko = document.getElementById('kpi-open');
+            if (ko) ko.textContent = openCount + ' OPEN';
+            const kr = document.getElementById('kpi-resolved');
+            if (kr) kr.textContent = resolvedCount + ' RESOLVED';
             document.getElementById('kpi-response').innerHTML = avgResponse + 'm';
             document.getElementById('kpi-response-main').innerHTML = avgResponse + '<span class="text-3xl align-super">m</span>';
             

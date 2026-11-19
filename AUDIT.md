@@ -47,3 +47,10 @@ Status: **cleaned locally only. NOT published, NOT pushed to GitHub, NOT live.**
 - Real-browser render (Tailwind CDN, Font Awesome, canvas map/charts at phone width, PWA install prompt) — jsdom cannot prove this. The tactical map zones are drawn in a fixed 520×340 design space scaled to fit, so check the map on a phone: zones must not look cramped at ~390px.
 - No live deploy: nothing pushed, no Netlify site linked. If Anthony wants it live, that is a separate decision (new repo or a page next to the v2.2 CLEAN build — do not overwrite the v2.2 clean file or the live QA Brain).
 - The 8-crew roster and 6 seed events are still demo data, just labeled now. Real crew names / real events have to come from Anthony — nothing here is connected to FieldPulse.
+
+## Post-live-check fix (2026-11-19)
+
+The fresh live load caught two static labels the first audit missed:
+- Incidents card pills said "4 OPEN" / "5 RESOLVED" (static HTML, never updated). Real seed counts are 3 open-or-acknowledged / 3 resolved. Fixed: pills now carry `kpi-open` / `kpi-resolved` ids and `updateKPIs()` writes the computed counts, so they stay honest as events change.
+- Tactical map badge said "LIVE • 47 NODES". The map draws 6 crew positions. Fixed to "LIVE • 6 POSITIONS".
+Both fixes are in `build_clean.py`, so a rebuild reproduces them. Re-verified locally (syntax + jsdom harness) and re-checked on the live page after redeploy.
