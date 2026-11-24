@@ -1,3 +1,17 @@
+# UPDATE — v2.1 NO-DEMO (2026-11-22)
+
+The live page is now v2.1 NO-DEMO. See `AUDIT-NODEMO.md` for the full
+strip: no demo toggle, no random injector, no live simulation, no seeded
+events, no fictional roster, no sample trend, no overnight sync. The log
+starts empty, crew are added with ADD CREW, and End-of-Day Review only
+counts open events. Storage key is now `nexusOpsState_v21_nodemo`, with
+migration from `nexusOpsState_v21_clean` that drops demo/seed events.
+Verified locally 41/41 jsdom checks, node --check pass, HTTP 200 for
+page/manifest/icons. Real-phone render still needed.
+
+The audit below is the original v2.1 CLEAN audit, kept for history.
+
+---
 # NEXUS OPS Field Command v2.1 — CLEAN audit
 
 Source: `workspace/user/files/Pasted_text-2.txt` (2,098 lines), preserved intact as `original.html`.
